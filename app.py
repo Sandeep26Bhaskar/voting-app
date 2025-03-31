@@ -93,7 +93,7 @@ st.sidebar.write("""
 # File paths
 INITIATIVES_FILE = 'initiatives.json'
 VOTES_FILE = 'votes.json'
-ADMIN_PASSWORD = st.secrets("ADMIN_PASSWORD")
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 # Initialize session state
 if 'role' not in st.session_state:
