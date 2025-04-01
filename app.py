@@ -12,64 +12,54 @@ st.sidebar.title("How This Benefits You")
 st.markdown(
     """
     <style>
-        /* Sidebar Background - Gradient */
-        .sidebar .sidebar-content {
-            background: linear-gradient(135deg, #FF6F61, #FFD700);  /* Gradient from Coral to Gold */
-            color: #fff;  /* White text for contrast */
+        /* Change Sidebar Background */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(135deg, #FF6F61, #FFD700);
+            color: white;
             padding: 20px;
             border-radius: 10px;
         }
         
+        /* Change Sidebar Text */
+        [data-testid="stSidebar"] p {
+            font-size: 14px;
+            color: white;
+        }
+
         /* Sidebar Title */
-        .sidebar .sidebar-content .sidebar-title {
+        [data-testid="stSidebar"] h1, 
+        [data-testid="stSidebar"] h2, 
+        [data-testid="stSidebar"] h3 {
             color: #ffffff;
             font-size: 22px;
             font-weight: bold;
             text-transform: uppercase;
         }
-        
-        /* Sidebar Text */
-        .sidebar .sidebar-content .markdown-text-container p {
-            font-size: 14px;
-            color: #eeeeee;
-            line-height: 1.6;
-        }
-        
-        /* Hover effect for links */
-        .sidebar .sidebar-content .markdown-text-container a:hover {
-            color: #fff;
-            background-color: #FF7F50;  /* Coral color on hover */
-            text-decoration: underline;
-        }
 
-        /* Adding a soft shadow to the sidebar */
-        .sidebar .sidebar-content {
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Adding rounded corners to sidebar */
-        .sidebar .sidebar-content {
-            border-radius: 12px;
-        }
-
-        /* Customize buttons in the sidebar */
-        .sidebar .sidebar-content button {
-            background-color: #FFD700;  /* Gold color */
-            color: #4b0d0d;  /* Dark text */
+        /* Sidebar Button */
+        [data-testid="stSidebar"] button {
+            background-color: #FFD700;
+            color: black;
             border-radius: 6px;
-            padding: 10px 15px;
-            border: none;
             font-size: 16px;
+            padding: 10px;
+            border: none;
         }
-        
-        /* Hover effect for buttons */
-        .sidebar .sidebar-content button:hover {
-            background-color: #FF6F61;  /* Coral color on hover */
+
+        /* Button Hover */
+        [data-testid="stSidebar"] button:hover {
+            background-color: #FF6F61;
             cursor: pointer;
         }
-        
+
+        /* Add Soft Shadow */
+        [data-testid="stSidebar"] {
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
-    """, unsafe_allow_html=True)
+    """, 
+    unsafe_allow_html=True
+)
 
 # Sidebar Description
 st.sidebar.write("""
@@ -144,6 +134,14 @@ if st.session_state.role == 'Admin':
 
     if st.button("Vote as Admin"):
         st.session_state.role = 'Voter'
+        st.rerun()
+    # Add Reset Button for Admin
+    if st.button("Reset Voting (Admin Only)"):
+        with open(INITIATIVES_FILE, 'w') as f:
+            json.dump([], f)  # Clear initiatives file
+        with open(VOTES_FILE, 'w') as f:
+            json.dump({}, f)  # Clear votes file
+        st.success("Voting data has been reset!")
         st.rerun()
 
 # Voter Section
