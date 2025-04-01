@@ -8,4 +8,4 @@ This is a simple voting app built using Streamlit.
 - Users can vote once
 - Secure admin login using secrets
 - File-based storage for votes
-  Key - aHR0cHM6Ly92b3RpbmctYXBwLWFub3ZpcC5zdHJlYW1saXQuYXBwLw==
+- Key - aHR0cHM6Ly92b3RpbmctYXBwLWFub3ZpcC5zdHJlYW1saXQuYXBwLw==
