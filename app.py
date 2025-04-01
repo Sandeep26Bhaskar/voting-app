@@ -8,59 +8,68 @@ st.write("Welcome to the Initiatives Voting App!")
 # Sidebar content
 st.sidebar.title("How This Benefits You")
 
-# Custom Sidebar Styling
+# Custom Sidebar Styling (Toned Down for Semi-Formal Feel)
 st.markdown(
     """
     <style>
-        /* Change Sidebar Background */
-        [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, #FF6F61, #FFD700);
-            color: white;
+        /* Sidebar Background - Subtle Gradient */
+        .sidebar .sidebar-content {
+            background: linear-gradient(135deg, #6c757d, #495057);  /* Gradient from Dark Gray to Slightly Lighter Gray */
+            color: #f8f9fa;  /* Light text for contrast */
             padding: 20px;
             border-radius: 10px;
         }
-        
-        /* Change Sidebar Text */
-        [data-testid="stSidebar"] p {
-            font-size: 14px;
-            color: white;
-        }
 
         /* Sidebar Title */
-        [data-testid="stSidebar"] h1, 
-        [data-testid="stSidebar"] h2, 
-        [data-testid="stSidebar"] h3 {
-            color: #ffffff;
-            font-size: 22px;
+        .sidebar .sidebar-content .sidebar-title {
+            color: #f8f9fa;
+            font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        /* Sidebar Button */
-        [data-testid="stSidebar"] button {
-            background-color: #FFD700;
-            color: black;
-            border-radius: 6px;
-            font-size: 16px;
-            padding: 10px;
-            border: none;
+        /* Sidebar Text */
+        .sidebar .sidebar-content .markdown-text-container p {
+            font-size: 14px;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
-        /* Button Hover */
-        [data-testid="stSidebar"] button:hover {
-            background-color: #FF6F61;
+        /* Hover effect for links */
+        .sidebar .sidebar-content .markdown-text-container a:hover {
+            color: #ffffff;
+            background-color: #343a40;  /* Darker color for hover effect */
+            text-decoration: underline;
+        }
+
+        /* Adding a soft shadow to the sidebar */
+        .sidebar .sidebar-content {
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Adding rounded corners to sidebar */
+        .sidebar .sidebar-content {
+            border-radius: 12px;
+        }
+
+        /* Customize buttons in the sidebar */
+        .sidebar .sidebar-content button {
+            background-color: #495057;  /* Dark Gray */
+            color: #f8f9fa;  /* Light text */
+            border-radius: 6px;
+            padding: 10px 15px;
+            border: none;
+            font-size: 16px;
+        }
+
+        /* Hover effect for buttons */
+        .sidebar .sidebar-content button:hover {
+            background-color: #6c757d;  /* Slightly lighter gray on hover */
             cursor: pointer;
         }
-
-        /* Add Soft Shadow */
-        [data-testid="stSidebar"] {
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-        }
     </style>
-    """, 
-    unsafe_allow_html=True
-)
-
+    """, unsafe_allow_html=True)
+    
 # Sidebar Description
 st.sidebar.write("""
     As a part of this voting system, you will help choose initiatives that align with your personal goals and growth.
