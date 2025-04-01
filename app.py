@@ -178,7 +178,11 @@ with open('votes.json','r') as f:
                 tally[task] += 1    
 print("Tally:",tally)
 sorted_tally = sorted(tally.items(), key =lambda x:x[1], reverse=True)
-st.success("The Winner is : {} with {} votes".format(sorted_tally[0][0],sorted_tally[0][1]))
+if sorted_tally:
+    st.success("The Winner is : {} with {} votes".format(sorted_tally[0][0], sorted_tally[0][1]))
+else:
+    st.warning("No votes have been cast yet. Please vote to see results.")
+
 
 # Footer Section
 footer = """
