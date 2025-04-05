@@ -188,9 +188,14 @@ with open('votes.json','r') as f:
 print("Tally:",tally)
 sorted_tally = sorted(tally.items(), key =lambda x:x[1], reverse=True)
 if sorted_tally:
-    st.success("The Winner is : {} with {} votes".format(sorted_tally[0][0], sorted_tally[0][1]))
+    highest_score = sorted_tally[0][1]
+    duplicate_initiatives = [name for name,score in sorted_tally if score == highest_score]
+    if len(duplicate_initiatives)>1:
+        st.warning(f"⚠️ It's a draw between: {', '.join(duplicate_initiatives)} with {highest_score} votes each!")
+    else:
+        st.success("🏆 The Winner is : {} with {} votes".format(sorted_tally[0][0], sorted_tally[0][1]))
 else:
-    st.warning("No votes have been cast yet. Please vote to see results.")
+    st.warning("No votes have been cast yet.")
 
 
 # Footer Section
