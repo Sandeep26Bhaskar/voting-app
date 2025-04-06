@@ -1,9 +1,21 @@
 import streamlit as st
 import json
-# from teammember import greetings
 
-#Sitemap for the app
-# This is a simple sitemap for the Streamlit app, which includes two pages: "Initiatives Voting" and "Team Members".
+# Disabling Streamlit's default animation and transition effects [Fade effect]
+st.markdown(
+    """
+    <style>
+    body {
+        animation: none !important;
+        transition: none !important;
+    }
+    .main {
+        transition: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.set_page_config(page_title="Initiatives Voting App", page_icon=":ballot_box:")
 st.title("Initiatives Voting App")

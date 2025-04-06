@@ -2,6 +2,21 @@ import streamlit as st
 import json
 import time
 
+# Disabling Streamlit's default animation and transition effects [Fade effect]
+st.markdown(
+    """
+    <style>
+    body {
+        animation: none !important;
+        transition: none !important;
+    }
+    .main {
+        transition: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Team member list
 # team_members = [
 #     {"name": "Alice Johnson", "title": "Software Engineer", "photo": "https://randomuser.me/api/portraits/women/1.jpg"},
