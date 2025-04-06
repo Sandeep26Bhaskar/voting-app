@@ -25,6 +25,7 @@ import time
 
 # Introduction with a typing effect
 st.set_page_config(page_title="Team Members", page_icon=":guardsman:", layout="wide") #with wide layout
+
 # Disabling Streamlit's default animation and transition effects [Fade effect]
 st.markdown(
     """
