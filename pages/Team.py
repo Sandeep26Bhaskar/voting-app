@@ -2,21 +2,7 @@ import streamlit as st
 import json
 import time
 
-# Disabling Streamlit's default animation and transition effects [Fade effect]
-st.markdown(
-    """
-    <style>
-    body {
-        animation: none !important;
-        transition: none !important;
-    }
-    .main {
-        transition: none !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 # Team member list
 # team_members = [
 #     {"name": "Alice Johnson", "title": "Software Engineer", "photo": "https://randomuser.me/api/portraits/women/1.jpg"},
@@ -40,6 +26,7 @@ st.markdown(
 # Introduction with a typing effect
 st.set_page_config(page_title="Team Members", page_icon=":guardsman:", layout="wide") #with wide layout
 
+
 def greetings(greets,delay=0.05):
     for char in greets:
         yield char
@@ -48,6 +35,22 @@ st.write_stream(greetings("# anovIP's Patent Monetization"))
 st.write_stream(greetings("#### Team Members:"))
 # st.title("anovIP's Patent Monetization")
 # st.subheader("Team Members:")
+# Disabling Streamlit's default animation and transition effects [Fade effect]
+st.markdown(
+    """
+    <style>
+    body {
+        animation: none !important;
+        transition: none !important;
+    }
+    .main {
+        transition: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # CSS styling
 st.markdown("""
