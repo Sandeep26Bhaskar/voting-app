@@ -1,6 +1,8 @@
 import streamlit as st
 import json
+# from teammember import greetings
 
+st.set_page_config(page_title="Initiatives Voting App", page_icon=":ballot_box:")
 st.title("Initiatives Voting App")
 st.write("Welcome to the Initiatives Voting App!")
 
