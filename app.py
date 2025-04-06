@@ -1,6 +1,10 @@
 import streamlit as st
 import json
 
+
+st.set_page_config(page_title="Initiatives Voting App", page_icon=":ballot_box:")
+
+
 # Disabling Streamlit's default animation and transition effects [Fade effect]
 st.markdown(
     """
@@ -17,7 +21,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.set_page_config(page_title="Initiatives Voting App", page_icon=":ballot_box:")
 st.title("Initiatives Voting App")
 st.write("Welcome to the Initiatives Voting App!")
 
