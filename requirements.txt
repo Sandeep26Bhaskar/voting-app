@@ -2,4 +2,3 @@ streamlit
 pandas
 numpy
 ydata-profiling
-beautifulsoup4
