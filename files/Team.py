@@ -23,70 +23,55 @@ import time
 #     {"name": "Paula Abdul", "title": "Quality Assurance", "photo": "https://randomuser.me/api/portraits/women/16.jpg"},
 # ]
 
-# Introduction with a typing effect
-st.set_page_config(page_title="Team Members", page_icon=":guardsman:", layout="wide") #with wide layout
 
-# Disabling Streamlit's default animation and transition effects [Fade effect]
-st.markdown(
-    """
-    <style>
-    body {
-        animation: none !important;
-        transition: none !important;
-    }
-    .main {
-        transition: none !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-def greetings(greets,delay=0.05):
-    for char in greets:
-        yield char
-        time.sleep(delay)
-st.write_stream(greetings("# anovIP's Patent Monetization"))
-st.write_stream(greetings("#### Team Members:"))
-# st.title("anovIP's Patent Monetization")
-# st.subheader("Team Members:")
+def team_members():
+    
+    # Introduction with a typing effect
+    def greetings(greets,delay=0.05):
+        for char in greets:
+            yield char
+            time.sleep(delay)
+    st.write_stream(greetings("# anovIP's Patent Monetization"))
+    st.write_stream(greetings("#### Team Members:"))
+    # st.title("anovIP's Patent Monetization")
+    # st.subheader("Team Members:")
 
 
 
-# CSS styling
-st.markdown("""
-    <style>
-    .team-card {
-        text-align: center;
-        padding: 10px;
-    }
-    .team-photo {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 10%;
-        border: 1px solid #ddd;
-    }
-    .team-card:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-        transition: transform 0.5s;
-    }
-    </style>
-""", unsafe_allow_html=True)
+    # CSS styling
+    st.markdown("""
+        <style>
+        .team-card {
+            text-align: center;
+            padding: 10px;
+        }
+        .team-photo {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10%;
+            border: 1px solid #ddd;
+        }
+        .team-card:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
 
-with open('profiles.json', 'r') as f:
-    team_members = json.load(f)
+    with open('profiles.json', 'r') as f:
+        team_members = json.load(f)
 
-# Display team members in rows of 6
-for i in range(0, len(team_members), 5):
-    cols = st.columns(5)
-    for j, member in enumerate(team_members[i:i+5]):
-        with cols[j]:
-            st.markdown(f"""
-                <div class="team-card">
-                    <img src="{member['photo']}" class="team-photo" />
-                    <div><strong>{member['name']}</strong><br>{member['title']}</div>
-                </div>
-            """, unsafe_allow_html=True)
+    # Display team members in rows of 6
+    for i in range(0, len(team_members), 5):
+        cols = st.columns(5)
+        for j, member in enumerate(team_members[i:i+5]):
+            with cols[j]:
+                st.markdown(f"""
+                    <div class="team-card">
+                        <img src="{member['photo']}" class="team-photo" />
+                        <div><strong>{member['name']}</strong><br>{member['title']}</div>
+                    </div>
+                """, unsafe_allow_html=True)
